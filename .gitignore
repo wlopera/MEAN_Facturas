@@ -1,0 +1,3 @@
+# MEAN - FACTURAS: Archivos de configuracion
+node_modules/*
+package-lock.json
