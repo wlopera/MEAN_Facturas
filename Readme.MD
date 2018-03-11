@@ -1,4 +1,4 @@
-mean_facturas:
+MEAN_facturas:
 -------------
 
 Instalaciones Requeridas:
@@ -38,6 +38,8 @@ Adicionales:
 
 Los instaladores adicionales . Se pueden configurar en el package.json (npm install)
 
+Configuraciones:
+---------------
   Configurar package.json:  para express y mongo
 
       Utilice el mandato "npm init" para crear un archivo package.json para la aplicación.
@@ -62,8 +64,12 @@ Los instaladores adicionales . Se pueden configurar en el package.json (npm inst
 
         $ npm install express
 
+CODIGO:
+------
+Copiar o bajarse el codigo fuente.
 
-      Poner en funcionamiento el proyecto?
+
+Poner en funcionamiento el proyecto?
 
       Luego de instalar NodeJS, Angular (opcional), Express y MongoDB:
 
@@ -86,7 +92,7 @@ package.json:
 ============
 {
   "name": "mean_facturas",
-  "version": "1.0.0",
+  "version": "1.0.0",ge
   "description": "",
   "main": "index.js",
   "scripts": {
