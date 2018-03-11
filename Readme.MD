@@ -1,6 +1,11 @@
-1.- Instalar mongoJS:
-  https://nodejs.org/en/download/
+mean_facturas:
+-------------
 
+Instalaciones Requeridas:
+-------------------------
+
+  1.- Instalar nodeJS:
+  https://nodejs.org/en/download/
 
   2.- Instalar MongoDB
       https://www.mongodb.com/download-center#community
@@ -17,11 +22,13 @@
 
       http://expressjs.com/es/starter/installing.html
 
-      Suponiendo que ya ha instalado Node.js, cree un directorio para que contenga la aplicación y conviértalo en el directorio de trabajo.
+      Si ya esta instalado instalado Node.js, cree un directorio que contenga
+      la aplicación y conviértalo en el directorio de trabajo.
+
       $ mkdir myapp
       $ cd myapp
 
-  4.- Instalar y cnfigurar angularJS (OPCIONAL)
+  4.- Instalar y configurar angularJS (OPCIONAL)
 
 Adicionales:
 -------------
@@ -32,46 +39,48 @@ Adicionales:
 Los instaladores adicionales . Se pueden configurar en el package.json (npm install)
 
   Configurar package.json:  para express y mongo
-      Utilice el mandato npm init para crear un archivo package.json para la aplicación. Para obtener más información sobre cómo funciona package.json, consulte Specifics of npm’s package.json handling.
 
+      Utilice el mandato "npm init" para crear un archivo package.json para la aplicación.
 
       $ npm init
 
-      Este mandato solicita varios elementos como, por ejemplo, el nombre y la versión de la aplicación. Por ahora, sólo tiene que pulsar INTRO para aceptar los valores predeterminados para la mayoría de ellos, con la siguiente excepción:
-
+      Este mandato solicita varios elementos como, por ejemplo, el nombre y la versión de la aplicación.
+      Por ahora, sólo tiene que pulsar INTRO para aceptar los valores predeterminados para la mayoría de ellos,
+      con la siguiente excepción:
 
       entry point: (index.js)
 
-      Especifique app.js o el nombre que desee para el archivo principal. Si desea que sea index.js, pulse INTRO para aceptar el nombre de archivo predeterminado recomendado.
+      Especifique app.js o el nombre que desee para el archivo principal.
+      Si desea que sea index.js, pulse INTRO para aceptar el nombre de archivo predeterminado recomendado.
 
-      A continuación, instale Express en el directorio app y guárdelo en la lista de dependencias. Por ejemplo:
+      A continuación, instale Express en el directorio app y guárdelo en la lista de dependencias.
+      Por ejemplo:
 
-
-      $ npm install express --save
+        $ npm install express --save
 
       Para instalar Express temporalmente y no añadirlo a la lista de dependencias, omita la opción --save:
 
-
-      $ npm install express
+        $ npm install express
 
 
       Poner en funcionamiento el proyecto?
 
-  Como ya hemos dicho no vamos a explicar como instalar NodeJS, Express y MongoDB ya que dependiendo del sistema operativo que utiliceis se hará de una forma o de otra y en Windows por ejemplo es bastante tedioso instalar esta herramientas, así que una vez que lo tengáis instalado todo debéis seguir los siguientes pasos:
+      Luego de instalar NodeJS, Angular (opcional), Express y MongoDB:
 
-      npm install : teneis que ejecutar este comando en la carpeta del proyecto para que se descargue las librerías de express y mongose, es decir las dependencias del proyecto (si tenéis problemas hacerlo como "sudo" o superusuario). Salvando las distancias, esta acción es similar ha hacer un "composer install" en symphony o descargarte los ".jar" definidos en el fichero "pom.xml" de Maven en Java.
+      npm install : teneis que ejecutar este comando en la carpeta del proyecto para que se descargue las librerías de express y mongose, es decir las dependencias del proyecto.
+      Es similar al uso  del fichero "pom.xml" de Maven en Java
 
+      - npm install
 
-
-      npm install
-
-      node server.js: En la carpeta del proyecto teneis que lanzar este comando. Sino os funciona este poner "nodejs server.js". Este comando se para poner a correr el servidor y que el proyecto funcione.
-
-
+      Para subir el servidor en la carpeta del proyecto lanzar el comando "node server.js"
 
       node server.js
 
-      http://localhost:8080: Ya podemos ver nuestra aplicación web yendo al navegador y poniendo la URL de vuestra máquina local donde tengáis el proyecto. Como ya he dicho podéis poner el puerto que queráis siempre que este este libre, pero lo tenéis que definir en el fichero "server.js".
+      Para ver la aplicacion funcionando (el puerto es el definido en server.js)
+      http://localhost:8080:
+
+NOTAS:
+-----
 
 package.json:
 ============
