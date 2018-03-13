@@ -1,24 +1,23 @@
-var Persona = require('./modelo/persona');
 var Factura = require('./modelo/factura');
-var Controller = require ('./controller');
+var Controller = require('./controller');
 
+// Endpoints del aplicativo
 module.exports = function(app) {
+  // devolver todas las facturas
+  app.get('/api/factura', Controller.getFactura);
 
-	// devolver todos los Personas
-	app.get('/api/persona', Controller.getPersona);
-	// Crear una nueva Persona
-	app.post('/api/persona', Controller.setPersona);
-	// Modificar los datos de una Persona
-	app.put('/api/persona/:persona_id', Controller.updatePersona);
-	// Borrar una Persona
-	app.delete('/api/persona/:persona_id', Controller.removePersona);
-	// application
-	app.get('*', function(req, res) {
-		res.sendfile('./angular/index.html'); // Carga única de la vista
-	});
+  // Crear una nueva Factura
+  app.post('/api/factura', Controller.setFactura);
 
-	// devolver todas las facturas
-	app.get('/api/factura', Controller.getFactura);
-	// Crear una nueva Factura
-	app.post('/api/factura', Controller.setFactura);
+  // Modificar los datos de una Factura
+  app.put('/api/factura/:factura_id', Controller.updateFactura);
+
+  // Borrar una Factura
+  app.delete('/api/factura/:factura_id', Controller.removeFactura);
+
+  // Aplicacion
+  app.get('*', function(req, res) {
+    res.sendfile('./angular/index.html'); // Carga única de la vista
+  });
+
 };

@@ -7,6 +7,8 @@
 	<title>MEAN Facturas</title>
 	<!-- Cargamos bootstrap -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+	<!-- Cargamos estilos peronslizados -->
+	<link rel="stylesheet" href="estilo.css">
 	<!-- Cargamos angular -->
 	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
 	<!-- Cargamos el javascript de angular -->
@@ -16,39 +18,44 @@
 <body ng-controller="mainController">
 	<div class="container">
 
-		<div class="jumbotron text-center" ng-prueba>
-			<h1>Nº de Facturas: <span class="label label-success">{{ personas.length }}</span></h1>
+		<div class="jumbotron_personal text-center" ng-prueba>
+			<h1>Nº de Facturas: <span class="label label-success">{{ facturas.length }}</span></h1>
 		</div>
 
 		<div class="row">
 			<div class="col-sm-6 col-sm-offset-1">
 				<table class="table table-striped">
 					<tr class="info">
-						<td>Nombre</td>
-						<td>Apellidos</td>
-						<td>Edad</td>
+						<td>Empresa</td>
+						<td>Factura</td>
+						<td>Monto</td>
+						<td>Fecha</td>
 					</tr>
-					<tr ng-repeat="persona in personas" ng-click="selectPerson(persona)">
-						<td>{{ persona.nombre }}</td>
-						<td>{{ persona.apellido }}</td>
-						<td>{{ persona.edad }}</td>
+					<tr ng-repeat="factura in facturas" ng-click="selectFactura(factura)">
+						<td>{{ factura.nombre }}</td>
+						<td>{{ factura.codigo }}</td>
+						<td>{{ factura.monto }}</td>
+						<td>{{ factura.fecha }}</td>
 					</tr>
 				</table>
 			</div>
 			<div class="col-sm-4 col-sm-offset-1 text-center">
 				<form name="myForm">
 					<div class="form-group">
-						<input type="text" class="form-control input-lg text-center" placeholder="Nombre" ng-model="newPersona.nombre" required>
+						<input type="text" class="form-control input-lg text-center" placeholder="Nombre Empresa" ng-model="newFactura.nombre" required>
 						<br>
-						<input type="text" class="form-control input-lg text-center" placeholder="Apellido" ng-model="newPersona.apellido" required>
+						<input type="text" class="form-control input-lg text-center" placeholder="Nro. de Factura" ng-model="newFactura.codigo" required>
 						<br>
-						<input type="text" class="form-control input-lg text-center" placeholder="Edad" ng-model="newPersona.edad" required>
+						<input type="text" class="form-control input-lg text-center" placeholder="Monto de la Factura" ng-model="newFactura.monto" required>
+						<br>
+						<input type="text" class="form-control input-lg text-center" placeholder="Fecha de la Factura" ng-model="newFactura.fecha" required>
 					</div>
 
 					<!-- Acciones que podemos realizar en el formulario -->
-					<button type="submit" class="btn btn-success btn-lg" ng-click="registrarPersona()" ng-disabled="myForm.$invalid || selected">Registrar</button>
-					<button type="submit" class="btn btn-warning btn-lg" ng-click="modificarPersona(newPersona)" ng-disabled="!newPersona.nombre || !newPersona.apellido || !newPersona.edad || !selected">Modificar</button>
-					<button type="submit" class="btn btn-danger btn-lg" ng-click="borrarPersona(newPersona)" ng-disabled="!newPersona.nombre || !newPersona.apellido || !newPersona.edad || !selected">Borrar</button>
+					<button type="submit" class="btn btn-success" ng-click="registrarFactura()" ng-disabled="myForm.$invalid || selected">Registrar</button>
+					<button type="submit" class="btn btn-warning" ng-click="modificarFactura()" ng-disabled="!newFactura.nombre || !newFactura.codigo || !newFactura.monto || !newFactura.fecha || !selected">Modificar</button>
+					<button type="submit" class="btn btn-danger" ng-click="borrarFactura()" ng-disabled="!newFactura.nombre || !newFactura.codigo || !newFactura.monto || !newFactura.fecha || !selected">Borrar</button>
+					<button type="submit" class="btn btn-info" ng-click="limpiar()">Limpiar</button>
 				</form>
 			</div>
 		</div>

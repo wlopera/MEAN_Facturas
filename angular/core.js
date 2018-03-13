@@ -1,75 +1,9 @@
 angular.module('MainApp', [])
 
 function mainController($scope, $http) {
-	$scope.newPersona = {};
-	$scope.personas = {};
-	$scope.selected = false;
-
-	$scope.newFactura = {
-		nombre: "KFC",
-		codigo: "EYSF111091108-00199909",
-		monto: 13.50,
-		fecha: "10/03/2018"
-	};
+	$scope.newFactura = {};
 	$scope.facturas = {};
-
-	// Obtenemos todos los datos de la base de datos
-	$http.get('/api/persona').success(function(data) {
-		console.log("Consulta BD /api/persona: ", data);
-		$scope.personas = data;
-	})
-	.error(function(data) {
-		console.log('Error: ' + data);
-	});
-
-	// Función para registrar a una persona
-	$scope.registrarPersona = function() {
-
-		$scope.registrarFactura();
-		/*
-		$http.post('/api/persona', $scope.newPersona)
-		.success(function(data) {
-				$scope.newPersona = {}; // Borramos los datos del formulario
-				$scope.personas = data;
-			})
-		.error(function(data) {
-			console.log('Error: ' + data);
-		});
-		*/
-	};
-
-	// Función para editar los datos de una persona
-	$scope.modificarPersona = function(newPersona) {
-		$http.put('/api/persona/' + $scope.newPersona._id, $scope.newPersona)
-		.success(function(data) {
-				$scope.newPersona = {}; // Borramos los datos del formulario
-				$scope.personas = data;
-				$scope.selected = false;
-			})
-		.error(function(data) {
-			console.log('Error: ' + data);
-		});
-	};
-
-	// Función que borra un objeto persona conocido su id
-	$scope.borrarPersona = function(newPersona) {
-		$http.delete('/api/persona/' + $scope.newPersona._id)
-		.success(function(data) {
-			$scope.newPersona = {};
-			$scope.personas = data;
-			$scope.selected = false;
-		})
-		.error(function(data) {
-			console.log('Error: ' + data);
-		});
-	};
-
-	// Función para coger el objeto seleccionado en la tabla
-	$scope.selectPerson = function(persona) {
-		$scope.newPersona = persona;
-		$scope.selected = true;
-		console.log($scope.newPersona, $scope.selected);
-	};
+	$scope.selected = false;
 
 	// Obtenemos todos los datos Factura de la base de datos
 	$http.get('/api/factura').success(function(data) {
@@ -90,5 +24,43 @@ function mainController($scope, $http) {
 		.error(function(data) {
 			console.log('Error-registrarFactura [POST: /api/factura]: ' + data);
 		});
+	};
+
+	// Función para editar los datos de una factura
+	$scope.modificarFactura = function() {
+		$http.put('/api/factura/' + $scope.newFactura._id, $scope.newFactura)
+		.success(function(data) {
+				$scope.newFactura = {}; // Borramos los datos del formulario
+				$scope.facturas = data;
+				$scope.selected = false;
+			})
+		.error(function(data) {
+			console.log('Error-modificarFactura [PUT: /api/factura]: ' + data);
+		});
+	};
+
+	// Función que borra un objeto factura conocido su id
+	$scope.borrarFactura = function() {
+		$http.delete('/api/factura/' + $scope.newFactura._id)
+		.success(function(data) {
+			$scope.newFactura = {};
+			$scope.facturas = data;
+			$scope.selected = false;
+		})
+		.error(function(data) {
+			console.log('Error-borrarFactura [DELETE: /api/factura]: ' + data);
+		});
+	};
+
+	// Función para coger el objeto seleccionado en la tabla
+	$scope.selectFactura = function(factura) {
+		$scope.newFactura = factura;
+		$scope.selected = true;
+	};
+
+	// Función para limpiar la tabla de valores a modificar
+	$scope.limpiar = function() {
+		$scope.newFactura = {};
+		$scope.selected = false;
 	};
 }
